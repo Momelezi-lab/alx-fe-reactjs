@@ -18,5 +18,15 @@ function App() {
   );
 }
 
-export default App;
+function App() {
+  return (
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
+    </div>
+  );
+}
 
+
+export default App;
