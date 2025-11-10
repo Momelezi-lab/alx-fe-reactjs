@@ -12,14 +12,11 @@ import './App.css'
 function App() {
   return (
     <div>
-      <UserProfile
-        name="Alice"
-        age={25}
-        bio="Loves hiking and photography"
-      />
+      <WelcomeMessage />
+      {/* other components can go here */}
     </div>
   );
 }
 
-export default App
+export default App;
 
