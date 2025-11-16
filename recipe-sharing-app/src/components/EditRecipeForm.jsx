@@ -16,7 +16,7 @@ const EditRecipeForm = () => {
   if (!recipe) return <h2>Recipe not found</h2>
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    event.preventDefault()
 
     updateRecipe({
       id: Number(id),
