@@ -1,22 +1,36 @@
-kimport { useRecipeStore } from './recipeStore'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import RecipeList from './components/RecipeList'
+import AddRecipeForm from './components/AddRecipeForm'
+import RecipeDetail from './components/RecipeDetail'
+import SearchBar from './components/SearchBar'
 
-const RecipeList = () => {
-  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes)
-
+function App() {
   return (
-    <div>
-      {filteredRecipes.length === 0 && <p>No recipes found</p>}
-      {filteredRecipes.map((recipe) => (
-        <div key={recipe.id}>
-          <Link to={`/recipe/${recipe.id}`}>
-            <h3>{recipe.title}</h3>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <Router>
+      <div style={{ padding: 20 }}>
+        <Routes>
+          {/* Home page: RecipeList + AddRecipeForm + SearchBar */}
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchBar />
+                <AddRecipeForm />
+                <RecipeList />
+              </>
+            }
+          />
+
+          {/* Recipe detail page */}
+          <Route
+            path="/recipe/:id"
+            element={<RecipeDetail />}
+          />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
-export default RecipeList
+export default App
 
