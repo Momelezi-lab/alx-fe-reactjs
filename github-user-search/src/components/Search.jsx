@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService";
+import {
+  fetchUserData,
+  fetchAdvancedUserData,
+} from "../services/githubService";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -63,8 +66,15 @@ const Search = () => {
       {users.length > 0 && (
         <div className="mt-4 space-y-4">
           {users.map((user) => (
-            <div key={user.id} className="flex items-center space-x-4 p-2 border rounded">
-              <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full" />
+            <div
+              key={user.id}
+              className="flex items-center space-x-4 p-2 border rounded"
+            >
+              <img
+                src={user.avatar_url}
+                alt={user.login}
+                className="w-16 h-16 rounded-full"
+              />
               <div>
                 <h3 className="font-bold">{user.login}</h3>
                 {user.location && <p>Location: {user.location}</p>}
