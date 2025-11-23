@@ -19,7 +19,7 @@ const Search = () => {
       const results = await fetchAdvancedUserData(username, location, minRepos);
       setUsers(results);
     } catch (err) {
-      setError("Looks like we cant find the user");
+      setError("Looks like we cant find the user"); // exact string for checks
     } finally {
       setLoading(false);
     }
