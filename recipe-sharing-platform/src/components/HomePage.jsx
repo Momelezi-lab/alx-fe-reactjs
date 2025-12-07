@@ -18,6 +18,14 @@ function HomePage() {
         <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
           Delicious Recipes
         </h1>
+        <div className="text-center mb-10">
+          <Link
+            to="/add-recipe"
+            className="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition transform hover:scale-105"
+          >
+            + Add New Recipe
+          </Link>
+        </div>
 
         {/* Responsive Recipe Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
