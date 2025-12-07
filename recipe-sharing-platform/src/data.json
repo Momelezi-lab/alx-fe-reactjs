@@ -1,39 +1,68 @@
-// src/data.json
 [
   {
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "Classic Italian pasta with eggs, Pecorino Romano, guanciale, and plenty of black pepper.",
-    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc44ae37b?w=500&h=400&fit=crop"
+    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc44ae37b?w=800&h=600&fit=crop",
+    "ingredients": [
+      "400g spaghetti",
+      "150g guanciale or pancetta",
+      "4 large eggs",
+      "100g Pecorino Romano, grated",
+      "Freshly ground black pepper",
+      "Salt"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti until al dente.",
+      "Cut guanciale into small strips and cook in a pan until crispy.",
+      "Beat eggs with grated Pecorino and plenty of black pepper.",
+      "Drain pasta, reserving 1 cup pasta water.",
+      "Toss hot pasta with guanciale, then remove from heat and quickly mix in egg mixture.",
+      "Add pasta water as needed to create creamy sauce. Serve immediately."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Tender chicken in a rich, creamy, spiced tomato sauce – a British-Indian favourite.",
-    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&h=400&fit=crop"
+    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&h=600&fit=crop",
+    "ingredients": [
+      "800g chicken thighs, cubed",
+      "200g yogurt",
+      "4 tbsp tikka spice mix",
+      "1 onion, finely chopped",
+      "400g tomato passata",
+      "200ml heavy cream",
+      "Fresh cilantro"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tikka spices for at least 1 hour.",
+      "Grill or pan-fry chicken until charred and cooked through.",
+      "Sauté onion, garlic, ginger until golden.",
+      "Add tomato passata and simmer for 10 minutes.",
+      "Stir in cream and cooked chicken.",
+      "Garnish with cilantro and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Margherita Pizza",
-    "summary": "The queen of pizzas: fresh mozzarella, tomatoes, basil and extra virgin olive oil.",
-    "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=500&h=400&fit=crop"
-  },
-  {
-    "id": 4,
-    "title": "Beef Tacos",
-    "summary": "Crispy tacos filled with spiced ground beef, lettuce, cheese, and salsa.",
-    "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&h=400&fit=crop"
-  },
-  {
-    "id": 5,
-    "title": "Vegetable Sushi Rolls",
-    "summary": "Fresh avocado, cucumber and carrot rolls served with soy sauce and wasabi.",
-    "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500&h=400&fit=crop"
-  },
-  {
-    "id": 6,
-    "title": "Chocolate Lava Cake",
-    "summary": "Warm chocolate cake with a gooey molten center – pure indulgence.",
-    "image": "https://images.unsplash.com/photo-1624353365286-3f8d62daad5b?w=500&h=400&fit=crop"
+    "summary": "The queen of pizzas: fresh mozzarella, tomatoes, basil and olive oil.",
+    "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=800&h=600&fit=crop",
+    "ingredients": [
+      "Pizza dough",
+      "200g mozzarella",
+      "400g San Marzano tomatoes",
+      "Fresh basil leaves",
+      "Extra virgin olive oil",
+      "Salt"
+    ],
+    "instructions": [
+      "Preheat oven to highest temperature (ideally 500°C/900°F).",
+      "Stretch dough into a round.",
+      "Spread crushed tomatoes, add torn mozzarella.",
+      "Bake for 8–12 minutes until crust is golden.",
+      "Top with fresh basil and drizzle olive oil. Slice and serve."
+    ]
   }
 ]
