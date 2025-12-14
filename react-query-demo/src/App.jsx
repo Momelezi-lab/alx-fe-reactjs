@@ -17,4 +17,16 @@ function App() {
   );
 }
 
+
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';  // If installed
+
+// In return:
+<QueryClientProvider client={queryClient}>
+  <div className="App">
+    <h1>React Query Demo: Posts Fetching</h1>
+    <PostsComponent />
+  </div>
+  <ReactQueryDevtools initialIsOpen={false} />
+</QueryClientProvider>
+
 export default App;
