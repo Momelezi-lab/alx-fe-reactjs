@@ -1,36 +1,31 @@
-import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';  // Note: Full import
 import { useAuth } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import ProfileDetails from './components/ProfileDetails';
-import ProfileSettings from './components/ProfileSettings';
 import Blog from './components/Blog';
 import Login from './components/Login';
 import './App.css';
 
 function AppContent() {
   return (
-    <BrowserRouter>  {/* Explicit: Contains "BrowserRouter" for checker */}
+    <BrowserRouter>
       <div className="App">
         <AuthNav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/profile"
+            path="/profile/*"  // Wildcard for nested (enables relative paths in Profile)
             element={
               <ProtectedRoute>
                 <Profile />
               </ProtectedRoute>
             }
-          >
-            <Route index element={<ProfileDetails />} />
-            <Route path="details" element={<ProfileDetails />} />
-            <Route path="settings" element={<ProfileSettings />} />
-          </Route>
+          />
           <Route path="/blog/:postId" element={<Blog />} />
-          <Route path="*" element={<h1>404 Not Found</h1>} />  {/* Bonus: Catch-all */}
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </div>
     </BrowserRouter>
