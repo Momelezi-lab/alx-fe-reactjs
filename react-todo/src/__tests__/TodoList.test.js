@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import TodoList from '../components/TodoList';  // Correct relative path from src/__tests__
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import TodoList from "../TodoList";// Correct relative path from src/__tests__
 
 describe('TodoList Component', () => {
   // Test 1: Initial render (verifies demo todos displayed)
