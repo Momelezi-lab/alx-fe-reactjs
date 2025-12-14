@@ -1,13 +1,6 @@
-import { useAuth } from '../contexts/AuthContext';
-
-const Login = () => {
-  const { login } = useAuth();
-  return (
-    <div>
-      <h1>Login Page</h1>
-      <button onClick={login}>Fake Login (Toggle Auth)</button>
-    </div>
-  );
-};
-
-export default Login;
+function Login() {
+    return <h2>Please log in to access your profile</h2>;
+  }
+  
+  export default Login;
+  

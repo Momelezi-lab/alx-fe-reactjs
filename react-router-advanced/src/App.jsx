@@ -1,62 +1,29 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';  // Note: Full import
-import { useAuth } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import Home from './components/Home';
-import Profile from './components/Profile';
-import Blog from './components/Blog';
-import Login from './components/Login';
-import './App.css';
-
-function AppContent() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <AuthNav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/profile/*"  // Wildcard for nested (enables relative paths in Profile)
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/blog/:postId" element={<Blog />} />
-          <Route path="*" element={<h1>404 Not Found</h1>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-}
-
-function AuthNav() {
-  const { isAuthenticated, logout } = useAuth();
-  return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        {!isAuthenticated ? (
-          <li><Link to="/login">Login</Link></li>
-        ) : (
-          <>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><button onClick={logout}>Logout</button></li>
-          </>
-        )}
-        <li><Link to="/blog/123">Blog Post 123</Link></li>
-      </ul>
-    </nav>
-  );
-}
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+import BlogPost from "./components/BlogPost";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+
+      {/* Protected route */}
+      <Route
+        path="/profile/*"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Dynamic route */}
+      <Route path="/blog/:id" element={<BlogPost />} />
+    </Routes>
   );
 }
 

@@ -1,8 +1,6 @@
-const ProfileSettings = () => (
-    <div>
-      <h2>Profile Settings</h2>
-      <p>Update preferences here.</p>
-    </div>
-  );
+function ProfileSettings() {
+    return <h3>Profile Settings</h3>;
+  }
   
   export default ProfileSettings;
+  

@@ -1,8 +1,6 @@
-const ProfileDetails = () => (
-    <div>
-      <h2>Profile Details</h2>
-      <p>User info here.</p>
-    </div>
-  );
+function ProfileDetails() {
+    return <h3>Profile Details</h3>;
+  }
   
   export default ProfileDetails;
+  
