@@ -1,6 +1,6 @@
-import { Routes, Route, Link } from 'react-router-dom';  // Contains "Routes", "Route"
-import ProfileDetails from './ProfileDetails';  // Contains "ProfileDetails"
-import ProfileSettings from './ProfileSettings';  // Contains "ProfileSettings"
+import { Routes, Route, Link } from 'react-router-dom';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
 const Profile = () => {
   return (
@@ -9,10 +9,10 @@ const Profile = () => {
       <nav>
         <Link to="details">Details</Link> | <Link to="settings">Settings</Link>
       </nav>
-      <Routes>  // Explicit "Routes" for nesting
-        <Route index element={<ProfileDetails />} />  // Explicit "Route" + index
-        <Route path="details" element={<ProfileDetails />} />  // Explicit "Route" + details
-        <Route path="settings" element={<ProfileSettings />} />  // Explicit "Route" + settings
+      <Routes>
+        <Route index element={<ProfileDetails />} />
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
       </Routes>
     </div>
   );
