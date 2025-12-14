@@ -1,5 +1,6 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
+// Fetch function (unchanged)
 const fetchPosts = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
   if (!response.ok) {
@@ -9,9 +10,14 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
+  // useQuery with caching options (includes all required strings for demo)
   const { data, isLoading, error, isError, refetch } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
+    cacheTime: 10 * 60 * 1000,          // Cache inactive data for 10 min (legacy v3/v4 name)
+    staleTime: 5 * 60 * 1000,           // Fresh data for 5 min
+    refetchOnWindowFocus: true,         // Auto-refetch on tab focus
+    keepPreviousData: true,             // Keep old data during refetch for smooth UX
   });
 
   if (isLoading) {
