@@ -97,4 +97,4 @@ function AddRecipeForm() {
                 value={formData.summary}
                 onChange={handleChange}
                 rows="3"
-                className="w-full px-4
+                className="w-full px-4c
