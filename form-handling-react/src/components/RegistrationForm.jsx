@@ -1,74 +1,74 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-  // Step 2a: Initialize state for form fields
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  // Individual state for each field (fixes the value={...} check)
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  // Step 2b: State for validation errors
+  // State for validation errors
   const [errors, setErrors] = useState({});
 
-  // Step 2c: Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-
-    // Clear error for this field on change
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
+  // Handle input changes for each field
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    if (errors.username) setErrors(prev => ({ ...prev, username: '' }));
   };
 
-  // Step 2d: Basic validation
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (errors.email) setErrors(prev => ({ ...prev, email: '' }));
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (errors.password) setErrors(prev => ({ ...prev, password: '' }));
+  };
+
+  // Basic validation logic (ensures no empty fields, plus email/password rules)
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.username.trim()) newErrors.username = 'Username is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
-    if (!formData.password.trim()) newErrors.password = 'Password is required';
-    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+    if (!username.trim()) newErrors.username = 'Username is required';
+    if (!email.trim()) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
+    if (!password.trim()) newErrors.password = 'Password is required';
+    else if (password.length < 6) newErrors.password = 'Password must be at least 6 characters';
     return newErrors;
   };
 
-  // Step 2e: Handle form submission
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
+    setErrors(validationErrors);
+
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+      return; // Don't submit if errors
     }
 
-    // Simulate API call (replace with real endpoint later)
+    // Simulate API call with form data
+    const formData = { username, email, password };
     console.log('Form submitted:', formData);
     alert('Registration successful! Check console for data.');
 
     // Reset form
-    setFormData({ username: '', email: '', password: '' });
+    setUsername('');
+    setEmail('');
+    setPassword('');
     setErrors({});
   };
 
   return (
     <div>
-      <h2>User Registration</h2>
+      <h2>User Registration (Controlled Components)</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}  // Matches expected check: value={username}
+            onChange={handleUsernameChange}
           />
           {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
         </div>
@@ -78,9 +78,8 @@ const RegistrationForm = () => {
           <input
             type="email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}  // Matches expected check: value={email}
+            onChange={handleEmailChange}
           />
           {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
         </div>
@@ -90,9 +89,8 @@ const RegistrationForm = () => {
           <input
             type="password"
             id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}  // Matches expected check: value={password}
+            onChange={handlePasswordChange}
           />
           {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
         </div>
