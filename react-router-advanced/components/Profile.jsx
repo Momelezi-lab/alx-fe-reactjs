@@ -1,6 +1,6 @@
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
-import ProfileDetails from './ProfileDetails';  // Import: Contains "ProfileDetails"
-import ProfileSettings from './ProfileSettings';  // Import: Contains "ProfileSettings"
+import { Routes, Route, Link } from 'react-router-dom';  // Contains "Routes", "Route"
+import ProfileDetails from './ProfileDetails';  // Contains "ProfileDetails"
+import ProfileSettings from './ProfileSettings';  // Contains "ProfileSettings"
 
 const Profile = () => {
   return (
@@ -9,12 +9,11 @@ const Profile = () => {
       <nav>
         <Link to="details">Details</Link> | <Link to="settings">Settings</Link>
       </nav>
-      <Routes>  // Local Routes: Contains "Routes"
-        <Route path="details" element={<ProfileDetails />} />  // Route + child: Contains "Route"
-        <Route path="settings" element={<ProfileSettings />} />  // Route + child
-        <Route index element={<ProfileDetails />} />  // Default for /profile
+      <Routes>  // Explicit "Routes" for nesting
+        <Route index element={<ProfileDetails />} />  // Explicit "Route" + index
+        <Route path="details" element={<ProfileDetails />} />  // Explicit "Route" + details
+        <Route path="settings" element={<ProfileSettings />} />  // Explicit "Route" + settings
       </Routes>
-      {/* Alternative: Use <Outlet /> if preferring declarative children in App, but this setup uses local Routes */}
     </div>
   );
 };
